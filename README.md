@@ -1,6 +1,6 @@
 # Sufideen — Azure Security & Cloud Engineering Portfolio
 
-Azure platform, identity and security engineering, built as code. Every project below deploys through Bicep and GitHub Actions with OIDC (no stored secrets) and a DevSecOps gate in the pipeline.
+Azure platform, identity and security engineering, built as infrastructure as code (mainly Bicep) and deployed through CI/CD pipelines (GitHub Actions or Azure Pipelines) with security scanning gates. See each repo's README for its exact scope and status.
 
 ## How the flagship projects fit together
 
