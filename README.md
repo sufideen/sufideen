@@ -10,7 +10,7 @@ A layered Azure security platform, each repo owning a distinct scope:
 |---|---|---|
 | 1. Foundation | [azl-bicepdeploy](https://github.com/sufideen/azl-bicepdeploy) | Management groups, Azure Policy, hub network, Log Analytics workspace |
 | 2. Identity / Zero Trust | [ztr-entra-lz](https://github.com/sufideen/ztr-entra-lz) | Conditional Access, PIM, custom RBAC, Sentinel identity rules |
-| 3. Security operations | [az-ent-sec-dashboard](https://github.com/sufideen/az-ent-sec-dashboard) | Executive, SOC and Zero Trust workbooks, detections, Teams/email alerting |
+| 3. Security operations | [az-ent-sec-dashboard](https://github.com/sufideen/az-ent-sec-dashboard) | Executive, SOC and Zero Trust workbooks, MITRE-mapped detections as code, Teams/email alerting|
 | Pipeline reference | [securebicep](https://github.com/sufideen/securebicep) | Checkov + PSRule gates, hub-and-spoke reference |
 | Workloads on the platform | [AKS + ACR web platform](https://github.com/sufideen/az-ent-sec-dashboard/blob/HEAD/docs/kubernetes-showcase.md), [rag-support-agent-poc](https://github.com/sufideen/rag-support-agent-poc), [avd-bicep-lz](https://github.com/sufideen/avd-bicep-lz) | AI and virtual-desktop workloads |
 
@@ -20,9 +20,9 @@ A layered Azure security platform, each repo owning a distinct scope:
 Identity control plane as code for employees, contractors, B2B vendors and workload identities: Conditional Access, PIM, custom RBAC, Sentinel analytics and Defender for Cloud plans. What-If validation, policy-as-code scanning and OIDC federated deploys.
 **Skills:** Entra ID, Conditional Access, PIM, Sentinel, Bicep, GitHub Actions
 
-### 2. Azure Security Operations Platform — [az-ent-sec-dashboard](https://github.com/sufideen/az-ent-sec-dashboard)
-Executive, SOC and Zero Trust dashboards as Azure Workbooks, 5 Sentinel analytics rules, and secretless alerting (Action Group → Logic App → Teams) using Key Vault and managed identity. See project 3 for the AKS platform in the same repo.
-**Skills:** Sentinel, KQL, Workbooks, Logic Apps, AKS, Checkov/PSRule
+ ### 2. Sentinel Detection-as-Code & SecOps Platform — [az-ent-sec-dashboard](https://github.com/sufideen/az-ent-sec-dashboard)
+Five Sentinel scheduled analytics rules (brute force, failed sign-in spike, high-risk OAuth consent, Conditional Access failure spike, privileged role assignment) mapped to MITRE ATT&CK (T1110, T1098, T1556), deployed as Bicep through a dev → test → prod GitHub Actions pipeline with OIDC and a required-reviewer approval gate. Every PR runs Bicep linting, what-if previews, gitleaks secret scanning and Checkov/PSRule scans (SARIF). Plus executive, SOC and Zero Trust workbooks and secretless alerting (Action Group → Logic App → Teams). See project 3 for the AKS platform in the same repo.
+**Skills:** Sentinel, detection-as-code, MITRE ATT&CK, KQL, Workbooks, Logic Apps, GitHub Actions, Checkov/PSRule
 
 ### 3. Secure AKS + ACR Web Platform — [az-ent-sec-dashboard (webplat)](https://github.com/sufideen/az-ent-sec-dashboard/blob/HEAD/docs/kubernetes-showcase.md)
 Private AKS cluster (system and user node pools), private Premium ACR with no admin user, and an Application Gateway WAF_v2 ingress via AGIC. Images are pulled through the kubelet managed identity (AcrPull), TLS certificates come from Key Vault via the CSI driver, and CI/CD runs on GitHub Actions with OIDC. Deployed and verified end to end in both dev and prod (nodes Ready, pods Running, App Gateway backend healthy, HTTPS 200), with captured evidence, a real prod incident write-up, a High-Level Design, an operations Low-Level Design and a slide deck.
@@ -50,7 +50,7 @@ Deployed and verified AVD pilot: host pool, two Entra-joined session hosts, FSLo
 |---|---|
 | Data protection and SOC | [Purview-DLP](https://github.com/sufideen/Purview-DLP), [soc-tvm](https://github.com/sufideen/soc-tvm) |
 | Hybrid / on-prem | [azure-local-poc](https://github.com/sufideen/azure-local-poc) |
-| Automation | [azure-jobs-scraper](https://github.com/sufideen/azure-jobs-scraper), [uk-news-scraper](https://github.com/sufideen/uk-news-scraper), [PowerShell_training](https://github.com/sufideen/PowerShell_training) |
+|  Automation | [uk-news-scraper](https://github.com/sufideen/uk-news-scraper), [PowerShell_training](https://github.com/sufideen/PowerShell_training) | 
 | Training labs | [azcloudtrain01](https://github.com/sufideen/azcloudtrain01), [ictlabs](https://github.com/sufideen/ictlabs), [devsecops-practice](https://github.com/sufideen/devsecops-practice) |
 
 ## Contact
